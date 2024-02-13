@@ -48,8 +48,8 @@ namespace EdiblePlantsMod
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2f;
-				gear.GetComponent<FoodItem>().m_CaloriesTotal = 145f;
-				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 145f;
+				gear.GetComponent<FoodItem>().m_CaloriesTotal = 165f;
+				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 165f;
 				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 40f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 100f;
@@ -70,8 +70,8 @@ namespace EdiblePlantsMod
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2f;
-				gear.GetComponent<FoodItem>().m_CaloriesTotal = 165f;
-				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 165f;
+				gear.GetComponent<FoodItem>().m_CaloriesTotal = 200f;
+				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 200f;
 				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 60f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 100f;
@@ -92,8 +92,8 @@ namespace EdiblePlantsMod
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 3f;
-				gear.GetComponent<FoodItem>().m_CaloriesTotal = 115f;
-				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 115f;
+				gear.GetComponent<FoodItem>().m_CaloriesTotal = 135f;
+				gear.GetComponent<FoodItem>().m_CaloriesRemaining = 135f;
 				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCrunchy";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 25f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 75f;
