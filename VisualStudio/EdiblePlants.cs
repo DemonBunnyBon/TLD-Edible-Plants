@@ -1,4 +1,8 @@
 ﻿using EdiblePlantsMod;
+using Il2Cpp;
+using Il2CppRewired.Utils;
+using Il2CppTLD.BigCarry;
+using Il2CppTLD.Gear;
 using System.Runtime.InteropServices;
 
 
@@ -10,8 +14,9 @@ namespace EdiblePlantsMod
 		{
 			MelonLoader.MelonLogger.Msg(System.ConsoleColor.Yellow, "Gonna munch on some rose hips...");
             MelonLoader.MelonLogger.Msg(System.ConsoleColor.Green, "Hi, Edible Plants is enabled!");
-            Settings.instance.AddToModSettings("Edible Plants");
-        }
+			Settings.instance.AddToModSettings("Edible Plants");
+			Settings.OnLoad();
+		}
 		private static bool Done;
 		public static bool SceneLoaded;
 
@@ -27,10 +32,7 @@ namespace EdiblePlantsMod
 
 		}
 
-		public override void OnUpdate()
-		{
 
-		}
 
 		private static void ChangeItemProperties() 
 		{
@@ -39,14 +41,24 @@ namespace EdiblePlantsMod
 				GameObject gear;
 			    FoodItem.Nutrient vitc = new FoodItem.Nutrient();
                 vitc.m_Amount = 10;
-                vitc.m_Nutrient = new Il2CppTLD.Gameplay.AssetReferenceNutrientDefinition("13a8bda1e12982e428b7551cc01b01df");
+			    vitc.m_Nutrient = new Il2CppTLD.Gameplay.AssetReferenceNutrientDefinition("13a8bda1e12982e428b7551cc01b01df");
+		
 
-                //Fiddling with stuff
-                gear = GearItem.LoadGearItemPrefab("GEAR_RosehipsPrepared").gameObject;
+			//Fiddling with stuff
+			gear = GearItem.LoadGearItemPrefab("GEAR_RosehipsPrepared").gameObject;
 
 			if (Settings.instance.EatHips == true) //Rosehips
 			{
-				gear.AddComponent<FoodItem>();
+				if (Settings.instance.RH_Food == true)
+				{
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+                }
+				else
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+                }
+                gear.AddComponent<FoodItem>();
+				
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.25f;
@@ -59,18 +71,29 @@ namespace EdiblePlantsMod
 				vitc.m_Amount = Settings.instance.RoseHipVC;
                 gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
 
-				//MelonLogger.Msg("Rose hip eating enabled.");
             }
 			else
 			{
-                //MelonLogger.Msg("Rose hip eating disabled.");
+				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
+                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
             }
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_ReishiPrepared").gameObject;
 
 			if (Settings.instance.EatReishi == true) //Reishi
 			{
-				gear.AddComponent<FoodItem>();
+
+				if (Settings.instance.R_Food == true)
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+				}
+                else
+                {
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+                }
+
+
+                gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.5f;
@@ -86,15 +109,24 @@ namespace EdiblePlantsMod
             }
 			else
 			{
-                //MelonLogger.Msg("Reishi eating disabled.");
+				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
+                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
             }
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_BirchbarkPrepared").gameObject;
 
 			if (Settings.instance.EatBark == true) //Bark
 			{
+				if (Settings.instance.BB_Food == true)
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+				}
+                else
+                {
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+                }
 
-				gear.AddComponent<FoodItem>();
+                gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 3.25f;
@@ -110,15 +142,24 @@ namespace EdiblePlantsMod
 			}
 			else
 			{
-				//MelonLogger.Msg("Bark eating disabled.");
-			}
+				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
+                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+            }
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_OldMansBeardHarvested").gameObject;
 
 			if (Settings.instance.EatLichen == true) //Bark
 			{
+				if (Settings.instance.BL_Food == true)
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+				}
+                else
+                {
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+                }
 
-				gear.AddComponent<FoodItem>();
+                gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.15f;
@@ -127,14 +168,15 @@ namespace EdiblePlantsMod
 				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 25f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 75f;
+				gear.AddComponent<FirstAidItem>();
+				
 				//MelonLogger.Msg("Lichen eating enabled.");
 			}
 			else
 			{
-				//MelonLogger.Msg("Lichen eating disabled.")
-			}
-
-
+				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
+                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+            }
 
 
 
