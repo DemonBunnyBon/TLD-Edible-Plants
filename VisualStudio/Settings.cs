@@ -23,7 +23,7 @@ namespace EdiblePlantsMod
         public int RoseHipVC = 15;
 
         [Name("Move To Food Category")]
-        [Description("Moves Prepared Rose Hips to Food category.")]
+        [Description("Moves Prepared Rose Hips to Food category. [Requies scene reload.]")]
         public bool RH_Food = false;
 
         [Section("Reishi Settings")]
@@ -43,7 +43,7 @@ namespace EdiblePlantsMod
         public int ReishiVC = 7;
 
         [Name("Move To Food Category")]
-        [Description("Moves Prepared Reishi to Food category.")]
+        [Description("Moves Prepared Reishi to Food category. [Requies scene reload.]")]
         public bool R_Food = false;
 
 
@@ -60,7 +60,7 @@ namespace EdiblePlantsMod
         public float LichenCalorie = 70f;
 
         [Name("Move To Food Category")]
-        [Description("Moves Beard Lichen to Food category.")]
+        [Description("Moves Beard Lichen to Food category. [Requies scene reload.]")]
         public bool BL_Food = false;
 
 
@@ -82,7 +82,7 @@ namespace EdiblePlantsMod
         public int BarkVC = 5;
 
         [Name("Move To Food Category")]
-        [Description("Moves Prepared Birch Bark to Food category.")]
+        [Description("Moves Prepared Birch Bark to Food category. [Requies scene reload.]")]
         public bool BB_Food = false;
 
         protected override void OnChange(FieldInfo field, object? oldValue, object? newValue) => RefreshFields();
