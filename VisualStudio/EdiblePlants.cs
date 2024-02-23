@@ -210,7 +210,7 @@ namespace EdiblePlantsMod
 			else
             {
                 GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
-                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
             }
 
 
