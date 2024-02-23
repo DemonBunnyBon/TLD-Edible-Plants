@@ -14,7 +14,7 @@ namespace EdiblePlantsMod
 
         [Name("Rose Hip Calories")]
         [Description("Controls how many total calories Prepared Rose Hips have. [Requies scene reload.]")]
-        [Slider(10f, 250f, 25)]
+        [Slider(10f, 250f, 50)]
         public float RoseHipCalorie = 170f;
 
         [Name("Rose Hip Vitamin C")]
@@ -34,7 +34,7 @@ namespace EdiblePlantsMod
 
         [Name("Reishi Calories")]
         [Description("Controls how many total calories prepared Reishi has. [Requies scene reload.]")]
-        [Slider(10f, 250f, 25)]
+        [Slider(10f, 250f, 50)]
         public float ReishiCalorie = 200f;
 
         [Name("Reishi Vitamin C")]
@@ -73,7 +73,7 @@ namespace EdiblePlantsMod
 
         [Name("Birch Bark Calories")]
         [Description("Controls how many total calories prepared Birch Bark has. [Requies scene reload.]")]
-        [Slider(10f, 250f, 25)]
+        [Slider(10f, 250f, 50)]
         public float BarkCalorie = 130f;
 
         [Name("Birch Bark Vitamin C")]
@@ -84,6 +84,27 @@ namespace EdiblePlantsMod
         [Name("Move To Food Category")]
         [Description("Moves Prepared Birch Bark to Food category. [Requies scene reload.]")]
         public bool BB_Food = false;
+
+
+        [Section("Burdock Settings")]
+
+        [Name("Edible Burdock")]
+        [Description("Enabled = game default. [Requies scene reload.]")]
+        public bool EatBurdock = true;
+
+        [Name("Burdock Calories")]
+        [Description("Controls how many total calories Prepared Burdock has. [Requies scene reload.]")]
+        [Slider(10f, 300f, 60)]
+        public float BurdockCalorie = 275f;
+
+        [Name("Burdock Vitamin C")]
+        [Description("Controls how much Vitamin C Prepared Burdock has. [Requies scene reload.]")]
+        [Slider(0, 20, 1)]
+        public int BurdockVC = 8;
+
+        [Name("Move To Food Category")]
+        [Description("Moves Prepared Burdock to Food category. [Requies scene reload.]")]
+        public bool BD_Food = false;
 
         protected override void OnChange(FieldInfo field, object? oldValue, object? newValue) => RefreshFields();
         internal static void OnLoad()
@@ -137,7 +158,19 @@ namespace EdiblePlantsMod
             {
                 SetFieldVisible(nameof(BarkCalorie), false);
                 SetFieldVisible(nameof(BarkVC), false);
-                SetFieldVisible(nameof(BB_Food), false) ;
+                SetFieldVisible(nameof(BB_Food), false);
+            }
+            if (EatBurdock == true)
+            {
+                SetFieldVisible(nameof(BurdockCalorie), true);
+                SetFieldVisible(nameof(BurdockVC), true);
+                SetFieldVisible(nameof(BD_Food), true);
+            }
+            else
+            {
+                SetFieldVisible(nameof(BurdockCalorie), false);
+                SetFieldVisible(nameof(BurdockVC), false);
+                SetFieldVisible(nameof(BD_Food), false);
             }
         }
 

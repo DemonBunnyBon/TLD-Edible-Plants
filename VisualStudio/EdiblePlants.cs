@@ -27,22 +27,22 @@ namespace EdiblePlantsMod
 				SceneLoaded = true;
 
 				ChangeItemProperties();
-            }
-			
+			}
+
 
 		}
 
 
 
-		private static void ChangeItemProperties() 
+		private static void ChangeItemProperties()
 		{
 
-			
-				GameObject gear;
-			    FoodItem.Nutrient vitc = new FoodItem.Nutrient();
-                vitc.m_Amount = 10;
-			    vitc.m_Nutrient = new Il2CppTLD.Gameplay.AssetReferenceNutrientDefinition("13a8bda1e12982e428b7551cc01b01df");
-		
+
+			GameObject gear;
+			FoodItem.Nutrient vitc = new FoodItem.Nutrient();
+			vitc.m_Amount = 10;
+			vitc.m_Nutrient = new Il2CppTLD.Gameplay.AssetReferenceNutrientDefinition("13a8bda1e12982e428b7551cc01b01df");
+
 
 			//Fiddling with stuff
 			gear = GearItem.LoadGearItemPrefab("GEAR_RosehipsPrepared").gameObject;
@@ -51,32 +51,32 @@ namespace EdiblePlantsMod
 			{
 				if (Settings.instance.RH_Food == true)
 				{
-                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
-                }
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+				}
 				else
 				{
 					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-                }
-                gear.AddComponent<FoodItem>();
-				
+				}
+				gear.AddComponent<FoodItem>();
+
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.25f;
 				gear.GetComponent<FoodItem>().m_CaloriesTotal = Settings.instance.RoseHipCalorie;
 				gear.GetComponent<FoodItem>().m_CaloriesRemaining = Settings.instance.RoseHipCalorie;
-                gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
+				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 40f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 100f;
 				gear.GetComponent<FoodItem>().m_Nutrients = new Il2CppSystem.Collections.Generic.List<FoodItem.Nutrient>();
 				vitc.m_Amount = Settings.instance.RoseHipVC;
-                gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
+				gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
 
-            }
+			}
 			else
 			{
 				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
-                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-            }
+				gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+			}
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_ReishiPrepared").gameObject;
 
@@ -87,31 +87,31 @@ namespace EdiblePlantsMod
 				{
 					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
 				}
-                else
-                {
-                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-                }
+				else
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+				}
 
 
-                gear.AddComponent<FoodItem>();
+				gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.5f;
 				gear.GetComponent<FoodItem>().m_CaloriesTotal = Settings.instance.ReishiCalorie;
-                gear.GetComponent<FoodItem>().m_CaloriesRemaining = Settings.instance.ReishiCalorie;
-                gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
+				gear.GetComponent<FoodItem>().m_CaloriesRemaining = Settings.instance.ReishiCalorie;
+				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 60f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 100f;
-                gear.GetComponent<FoodItem>().m_Nutrients = new Il2CppSystem.Collections.Generic.List<FoodItem.Nutrient>();
-                vitc.m_Amount = Settings.instance.ReishiVC;
-                gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
-               // MelonLogger.Msg("Reishi eating enabled.");
-            }
+				gear.GetComponent<FoodItem>().m_Nutrients = new Il2CppSystem.Collections.Generic.List<FoodItem.Nutrient>();
+				vitc.m_Amount = Settings.instance.ReishiVC;
+				gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
+				// MelonLogger.Msg("Reishi eating enabled.");
+			}
 			else
 			{
 				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
-                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-            }
+				gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+			}
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_BirchbarkPrepared").gameObject;
 
@@ -121,12 +121,12 @@ namespace EdiblePlantsMod
 				{
 					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
 				}
-                else
-                {
-                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-                }
+				else
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+				}
 
-                gear.AddComponent<FoodItem>();
+				gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 3.25f;
@@ -143,23 +143,23 @@ namespace EdiblePlantsMod
 			else
 			{
 				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
-                gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
-            }
+				gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
+			}
 
 			gear = GearItem.LoadGearItemPrefab("GEAR_OldMansBeardHarvested").gameObject;
 
-			if (Settings.instance.EatLichen == true) //Bark
+			if (Settings.instance.EatLichen == true) //Lichen
 			{
 				if (Settings.instance.BL_Food == true)
 				{
 					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
 				}
-                else
-                {
-                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
-                }
+				else
+				{
+					gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+				}
 
-                gear.AddComponent<FoodItem>();
+				gear.AddComponent<FoodItem>();
 				gear.GetComponent<FoodItem>().m_IsNatural = true;
 				gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
 				gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.15f;
@@ -168,19 +168,52 @@ namespace EdiblePlantsMod
 				gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingCattail";
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 25f;
 				gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 75f;
-				gear.AddComponent<FirstAidItem>();
-				
+
+
 				//MelonLogger.Msg("Lichen eating enabled.");
 			}
 			else
 			{
 				GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
+				gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+			}
+
+            gear = GearItem.LoadGearItemPrefab("GEAR_BurdockPrepared").gameObject;
+
+            if (Settings.instance.EatBurdock == true) //Burdock
+            {
+                if (Settings.instance.BD_Food == true)
+                {
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Food;
+                }
+                else
+                {
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+                }
+
+                gear.AddComponent<FoodItem>();
+                gear.GetComponent<FoodItem>().m_IsNatural = true;
+                gear.GetComponent<FoodItem>().m_HarvestedByPlayer = true;
+                gear.GetComponent<FoodItem>().m_TimeToEatSeconds = 2.15f;
+                gear.GetComponent<FoodItem>().m_CaloriesTotal = Settings.instance.BurdockCalorie;
+				gear.GetComponent<FoodItem>().m_CaloriesRemaining = Settings.instance.BurdockCalorie;
+                gear.GetComponent<FoodItem>().m_Nutrients = new Il2CppSystem.Collections.Generic.List<FoodItem.Nutrient>();
+                vitc.m_Amount = Settings.instance.BurdockVC;
+				gear.GetComponent<FoodItem>().m_Nutrients.Add(vitc);
+                gear.GetComponent<FoodItem>().m_EatingAudio = "Play_EatingBurdock";
+                gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningLowCondition = 25f;
+                gear.GetComponent<FoodItem>().m_ChanceFoodPoisoningRuined = 75f;
+
+
+                //MelonLogger.Msg("Burdock eating enabled.");
+            }
+			else
+            {
+                GameManager.DestroyImmediate(gear.GetComponent<FoodItem>());
                 gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
             }
 
 
-
-
-		}
+        }
 	}
 }
