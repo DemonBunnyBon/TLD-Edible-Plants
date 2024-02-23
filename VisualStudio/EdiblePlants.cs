@@ -188,7 +188,7 @@ namespace EdiblePlantsMod
                 }
                 else
                 {
-                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.Material;
+                    gear.GetComponent<GearItem>().GearItemData.m_Type = GearType.FirstAid;
                 }
 
                 gear.AddComponent<FoodItem>();
