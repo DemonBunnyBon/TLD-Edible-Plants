@@ -14,12 +14,12 @@ namespace EdiblePlantsMod
 
         [Name("Rose Hip Calories")]
         [Description("Controls how many total calories Prepared Rose Hips have. [Requies scene reload.]")]
-        [Slider(10f, 250f, 50)]
-        public float RoseHipCalorie = 170f;
+        [Slider(10, 250, 240)]
+        public int RoseHipCalorie = 170;
 
         [Name("Rose Hip Vitamin C")]
         [Description("Controls how much Vitamin C Prepared Rose Hips have. [Requies scene reload.]")]
-        [Slider(0, 20, 1)]
+        [Slider(0, 20, 21)]
         public int RoseHipVC = 15;
 
         [Name("Move To Food Category")]
@@ -34,12 +34,12 @@ namespace EdiblePlantsMod
 
         [Name("Reishi Calories")]
         [Description("Controls how many total calories prepared Reishi has. [Requies scene reload.]")]
-        [Slider(10f, 250f, 50)]
-        public float ReishiCalorie = 200f;
+        [Slider(10, 250, 240)]
+        public int ReishiCalorie = 200;
 
         [Name("Reishi Vitamin C")]
         [Description("Controls how much Vitamin C Prepared Reishi has. [Requies scene reload.]")]
-        [Slider(0, 20, 1)]
+        [Slider(0, 20, 21)]
         public int ReishiVC = 7;
 
         [Name("Move To Food Category")]
@@ -56,8 +56,8 @@ namespace EdiblePlantsMod
 
         [Name("Beard Lichen Calories")]
         [Description("Controls how many total calories Beard Lichen has. [Requies scene reload.]")]
-        [Slider(10f, 100f, 10)]
-        public float LichenCalorie = 70f;
+        [Slider(10, 100, 90)]
+        public int LichenCalorie = 70;
 
         [Name("Move To Food Category")]
         [Description("Moves Beard Lichen to Food category. [Requies scene reload.]")]
@@ -73,12 +73,12 @@ namespace EdiblePlantsMod
 
         [Name("Birch Bark Calories")]
         [Description("Controls how many total calories prepared Birch Bark has. [Requies scene reload.]")]
-        [Slider(10f, 250f, 50)]
-        public float BarkCalorie = 130f;
+        [Slider(10, 250, 240)]
+        public int BarkCalorie = 130;
 
         [Name("Birch Bark Vitamin C")]
         [Description("Controls how much Vitamin C Prepared Birch Bark has. [Requies scene reload.]")]
-        [Slider(0, 20, 1)]
+        [Slider(0, 20, 21)]
         public int BarkVC = 5;
 
         [Name("Move To Food Category")]
@@ -94,19 +94,29 @@ namespace EdiblePlantsMod
 
         [Name("Burdock Calories")]
         [Description("Controls how many total calories Prepared Burdock has. [Requies scene reload.]")]
-        [Slider(10f, 300f, 60)]
-        public float BurdockCalorie = 275f;
+        [Slider(10, 300, 290)]
+        public int BurdockCalorie = 275;
 
         [Name("Burdock Vitamin C")]
         [Description("Controls how much Vitamin C Prepared Burdock has. [Requies scene reload.]")]
-        [Slider(0, 20, 1)]
+        [Slider(0, 20, 21)]
         public int BurdockVC = 8;
 
         [Name("Move To Food Category")]
         [Description("Moves Prepared Burdock to Food category. [Requies scene reload.]")]
         public bool BD_Food = false;
 
+        [Section("Reset Settings")]
+        [Name("Reset To Default")]
+        [Description("Resets all settings to Default. (Confirm required.)")]
+        public bool ResetSettings = false;
         protected override void OnChange(FieldInfo field, object? oldValue, object? newValue) => RefreshFields();
+        protected override void OnConfirm()
+        {
+            ApplyReset();
+            instance.ResetSettings = false;
+            base.OnConfirm();
+        }
         internal static void OnLoad()
         {
             instance.RefreshFields();
@@ -117,7 +127,7 @@ namespace EdiblePlantsMod
             {
                 SetFieldVisible(nameof(RoseHipCalorie), true);
                 SetFieldVisible(nameof(RoseHipVC), true);
-                SetFieldVisible(nameof(RH_Food), true); 
+                SetFieldVisible(nameof(RH_Food), true);
             }
             else
             {
@@ -173,6 +183,33 @@ namespace EdiblePlantsMod
                 SetFieldVisible(nameof(BD_Food), false);
             }
         }
-
+        public static void ApplyReset()
+        {
+            if (instance.ResetSettings == true)
+            {
+                instance.EatHips = true;
+                instance.RoseHipCalorie = 170;
+                instance.RoseHipVC = 15;
+                instance.RH_Food = false;
+                instance.EatReishi = true;
+                instance.ReishiCalorie = 200;
+                instance.ReishiVC = 7;
+                instance.R_Food = false;
+                instance.EatLichen = true;
+                instance.LichenCalorie = 70;
+                instance.BL_Food = false;
+                instance.EatBark = false;
+                instance.BarkCalorie = 130;
+                instance.BarkVC = 5;
+                instance.BB_Food = false;
+                instance.EatBurdock = true;
+                instance.BurdockCalorie = 275;
+                instance.BurdockVC = 8;
+                instance.BD_Food = false;
+                instance.ResetSettings = false;
+                instance.RefreshFields();
+                instance.RefreshGUI();
+            }
+        }
     }
 }

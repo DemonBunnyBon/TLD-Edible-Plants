@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 
 
 [assembly: AssemblyTitle("EdiblePlants")]
-[assembly: AssemblyCopyright("Bonnie")]
+[assembly: AssemblyCopyright("Marcy")]
 
 
-[assembly: AssemblyVersion("1.1.3")]
-[assembly: AssemblyFileVersion("1.1.3")]
-[assembly: MelonInfo(typeof(EdiblePlants), "Edible Plants", "1.1.3", "Bonnie", null)]
+[assembly: AssemblyVersion("1.1.4")]
+[assembly: AssemblyFileVersion("1.1.4")]
+[assembly: MelonInfo(typeof(EdiblePlants), "Edible Plants", "1.1.4", "Marcy", null)]
 
 
 [assembly: MelonGame("Hinterland", "TheLongDark")]
