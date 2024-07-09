@@ -9,5 +9,5 @@ The mod also allows to adjust the values of Prepared Burdock which is edible in 
 
 # Installation
 
-- Install Mod Settings, it is required.
+- Install [Mod Settings](https://github.com/DigitalzombieTLD/ModSettings/releases/), it is required.
 - Drop the .dll file into your mods folder.
