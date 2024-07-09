@@ -1,7 +1,7 @@
 ![Screenshot](https://github.com/DemonBunnyBon/TLD-Edible-Plants/blob/main/Thumb_EP.png?raw=true)
-# TLD-Edible-Plants
+# Edible Plants
 
-Mod for The Long Dark, enabling you to eat prepared Reishi, Rose Hips, Beard Lichen and Birch Bark. 
+A mod for The Long Dark, enabling you to eat prepared Reishi, Rose Hips, Beard Lichen and Birch Bark. 
 
 All of the options can be toggled on and off, with adjustable settings for the value of their calories and in some cases vitamin c. 
 
