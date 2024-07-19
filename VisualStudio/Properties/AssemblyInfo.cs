@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Marcy")]
 
 
-[assembly: AssemblyVersion("1.1.4")]
-[assembly: AssemblyFileVersion("1.1.4")]
-[assembly: MelonInfo(typeof(EdiblePlants), "Edible Plants", "1.1.4", "Marcy", null)]
+[assembly: AssemblyVersion("1.1.5")]
+[assembly: AssemblyFileVersion("1.1.5")]
+[assembly: MelonInfo(typeof(EdiblePlants), "EdiblePlants", "1.1.5", "Marcy", null)]
 
 
 [assembly: MelonGame("Hinterland", "TheLongDark")]
