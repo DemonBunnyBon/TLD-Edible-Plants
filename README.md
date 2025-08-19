@@ -13,3 +13,6 @@ It also allows moving all of the items into the food category in the inventory f
 
 - Install [Mod Settings](https://github.com/DigitalzombieTLD/ModSettings/releases/), it is required.
 - Drop the .dll file into your mods folder.
+
+## Support
+You can support me via donations [here](https://ko-fi.com/marcythejinx)!
